@@ -25,11 +25,20 @@
 // The StudentBadge component below is hardcoded — it always shows the same text.
 // we will update this soon.
 
-function StudentBadge() {
+function StudentBadge(props) {
   return (
     <div>
-      <h3>Student Name</h3>
-      <p>Grade: 0</p>
+      <p>{props.name}</p>
+      <p>{props.grade}</p>
+    </div>
+  )
+}
+
+function TeacherCard(props){
+  return(
+    <div>
+      <p>{props.name}</p>
+      <p>{props.subject}</p>
     </div>
   )
 }
@@ -66,16 +75,18 @@ function SectionA() {
 
   return (
     <div>
-      <h2>Section A — Props</h2>
-      <StudentBadge />
-      {/* A1 + A2: Render two more StudentBadge components here */}
+    <h2>Section A — Props</h2>
 
-      {/* A3: Render your TeacherCard here */}
+<StudentBadge />
+{/* A1 + A2: Render two more StudentBadge components here */}
+<StudentBadge name="Alvin" grade="B"/>
+<StudentBadge name="Joe" grade="A"/>
 
-    </div>
+{/* A3: Render your TeacherCard here */}
+<TeacherCard name="Todd" subject="Science"/>
+  </div>
   )
-}
-
+  }
 
 // ------------------------------------------------------------
 // SECTION B — Props with Different Data Types
@@ -99,7 +110,22 @@ function SectionA() {
 //       then embed that variable in your JSX.
 //
 // Write PlayerCard here:
+function PlayerCard(props){
+  let status;
+  if(props.isActive){
+    status = "Active"
+  }else{
+    status = "Inactive"
+  }
 
+  return(
+    <>
+    <p>{props.name}</p>
+    <p>{props.score}</p>
+    <p>{status}</p>
+    </>
+  )
+}
 
 
 function SectionB() {
@@ -113,6 +139,9 @@ function SectionB() {
       <h2>Section B — Props with Different Types</h2>
       {/* Render your PlayerCard components here */}
 
+      <PlayerCard name="John" score={6} isActive={false}/>
+      <PlayerCard name="Adam" score={1} isActive={true}/>
+      <PlayerCard name="Justin" score={2} isActive={true}/>
     </div>
   )
 }
