@@ -29,7 +29,11 @@ function SectionA() {
   // A1.
   // Declare a variable called myName and assign it your first name as a string.
   // Declare a variable called myCity and assign it the city you are from.
-
+  
+  let myName = 'Alvin'
+  let myCity = 'New York City'
+  let result = 25 + 17
+  console.log(result);
 
   // A2.
   // Inside the return below, add a <p> tag that displays your name.
@@ -56,13 +60,19 @@ function SectionA() {
   // EXPLAIN: What is JSX? How is it different from plain HTML?
   //          Why do you need curly braces to embed a variable's value?
   //
-  //          answer:
+  //          answer: Jsx is an extension for Javascript and is primarily used in React
+  //          to describe what the user interface(UI) should look like. While it looks
+  //          identical to html, they are different because Jsx enables Javascript
+  //          expressions and creates reusable components to create a more interactive web
+  //          development.
 
   return (
     <div>
       <h2>Section A — JSX Basics</h2>
       {/* Your output goes below this line */}
-
+      <p>{myName.length}</p>
+      <p>{myCity}</p>
+      <p>25 + 17 = {result}</p>
     </div>
   )
 }
@@ -86,13 +96,31 @@ function SectionA() {
 //     (href="#" is fine — we are not building real links yet)
 //
 // Write PageHeader here:
-
+  function PageHeader() {
+    return (
+      <>
+      <h1>My React App</h1>
+      <nav>
+        <a>Home</a>
+        <a>About</a>
+        <a>Contact</a>
+      </nav>
+      </>
+    );
+  }
 
 // B2.
 // Create a component called PageFooter.
 // It should return a <footer> element with a <p> that says "2026 TTP".
 //
 // Write PageFooter here:
+function PageFooter(){
+  return (
+    <footer>
+   <p>2026 TTP</p>
+    </footer>
+  )
+}
 
 
 function SectionB() {
@@ -111,7 +139,8 @@ function SectionB() {
     <div>
       <h2>Section B — Your Own Components</h2>
       {/* Render your components below */}
-
+      <PageHeader/>
+      <PageFooter/>
     </div>
   )
 }
