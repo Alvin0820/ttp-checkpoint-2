@@ -55,11 +55,23 @@ function SectionA() {
       <h3>All Players</h3>
       <ul>
         {/* A1: map players here: */}
-
+      {players.map((player) => (
+        <li key={player.id}>
+          {player.name} {player.score}
+        </li>
+      ))}
       </ul>
 
       {/* A2: filtered list goes here: */}
-
+      {
+  players
+    .filter((player) => player.score >= 30)
+    .map((player) => (
+      <li key={player.id}>
+        {player.name} {player.score}
+      </li>
+    ))
+}    
     </div>
   )
 }
@@ -79,6 +91,14 @@ function SectionA() {
 // It should accept props and display a player's name and score inside a <div>.
 //
 // Write PlayerRow here:
+function PlayerRow(props) {
+  return (
+    <div>
+      <p>{props.name}</p>
+      <p>{props.score}</p>
+    </div>
+  );
+}
 
 
 
@@ -94,12 +114,14 @@ function SectionB() {
   // EXPLAIN: What is the advantage of rendering a component inside .map()
   //          compared to mapping to a plain HTML element like <li>?
   //
-  //          answer:
+  //          answer: It makes the code more resusable and cleaner.
 
   return (
     <div>
       <h2>Section B — Lists and Components</h2>
       {/* B2: map PlayerRow components here */}
+      <PlayerRow name="John" score={50} />
+      <PlayerRow name="Adam" score={75} />
 
     </div>
   )
